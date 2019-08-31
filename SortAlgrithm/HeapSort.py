@@ -20,7 +20,7 @@ def sift(array, left, right):
 	"""调整"""
 	i = left      # 当前调整的小堆的父节点
 	j = 2*i + 1   # i的左孩子
-	tmp = array[i]     # 当前调整的堆的根节点
+	tmp = array[i]     # 当前调整的堆的根节点,将array[i]中的值存入tmp,此时，array[i]始终表示待填入的位置。
 	while j <= right:    # 如果孩子还在堆的边界内
 		if j < right and array[j] < array[j+1]:   # 如果i有右孩子,且右孩子比左孩子大
 			j = j + 1                              # 大孩子就是右孩子
@@ -43,10 +43,10 @@ def heap(array):
 	for i in range(n-1, -1, -1):
 		# 把根节点和调整的堆的最后一个元素交换
 		array[0], array[i] = array[i], array[0]
-		# 再调整，从0到i-1
+		# 再调整，从0到i-1,每次固定一个最大值
 		sift(array, 0, i-1)
 
-nums = [6,1,2,7,9,3,4,5,10,8]
+nums = [6,1,2,7,9,3,4,5,10,8,12,13,14]
 print('\ninit data:',nums)
 heap(nums)
 print('sorted:',nums)

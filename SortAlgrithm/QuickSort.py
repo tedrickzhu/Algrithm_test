@@ -95,26 +95,27 @@ def quicksort4(array,left,right):
 def quicksort5(array,l,r):
 	if l >= r:
 		return
-	stack = []
-	stack.append(l)
-	stack.append(r)
-	while stack:
-		low = stack.pop(0)
-		high = stack.pop(0)
+	queue = []
+	queue.append(l)
+	queue.append(r)
+	while queue:
+		low = queue.pop(0)
+		high = queue.pop(0)
+		print("low,high:",low,high)
 		if high - low <= 0:
 			continue
 		x = array[high]
+		# i指示最后一个比基准元素小的那个元素的位置，所以基准元素的最终位置为i+1
 		i = low - 1
 		#j的取值取不到high，所以for循环外面需要做一次置换，
-		# 并且i的最终位置为基准元素前面的那个元素
 		for j in range(low, high):
 			if array[j] <= x:
-				i += 1
+				i =i+1
 				array[i], array[j] = array[j], array[i]
-			print('i,j:',i,j)
+			# print('i,j:',i,j)
 		array[i + 1], array[high] = array[high], array[i + 1]
 		#在原数组上面操作，所以队列中需要保存的是每次需要排序的子数组的起始和终点的位置
-		stack.extend([low, i, i + 2, high])
+		queue.extend([low, i, i + 2, high])
 
 	pass
 

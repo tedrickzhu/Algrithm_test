@@ -56,7 +56,7 @@ def RadixSort(array):
 
 
 if __name__=='__main__':
-	nums = [6,1,2,7,9,3,4,5,10,8,12,15,17,17,19,26]
+	nums = [6,1,2,7,9,300,4,5,10,8,12,15,17,17,19,26]
 	print('\ninit data:',nums)
 	RadixSort(nums)
 	print('sorted:',nums)
